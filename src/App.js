@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+import CreateAcct from './Registration/CreateAcct';
+import ForgotP from './Registration/ForgotP';
+import LoginForm from './Registration/LoginForm';
+import ResetPassword from './Registration/ResetPassword';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Navbar from './Registration/Navbar';
+import Particle from './Registration/particles';
+// import Webcam from './Registration/Webcam';
+
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+     
+     <BrowserRouter>
+    
+     <Navbar />
+     {/* <Webcam/> */}
+     <Particle className='particle' />
+     <Routes>
+      <Route exact path='/login' element={<LoginForm />} />
+      <Route exact path='/create' element={<CreateAcct />} />
+      <Route exact path='/forgot' element={ <ForgotP />} />
+      <Route exact path='/reset' element={<ResetPassword />} />
+     </Routes>
+     </BrowserRouter>
+     
+      
+     
+      
+      
     </div>
   );
 }
